@@ -138,7 +138,15 @@ def main(argv=None):
         out = to_graphql(index)
         
     if args.output:
-        Path(args.output).write_text(out, encoding="utf-8")
+        out_path = Path(args.output)
+        if not out_path.parent.exists():
+            print(f"Error: Output directory does not exist: {out_path.parent}", file=sys.stderr)
+            return 1
+        try:
+            out_path.write_text(out, encoding="utf-8")
+        except Exception as e:
+            print(f"Error writing output: {e}", file=sys.stderr)
+            return 1
     else:
         print(out, end="")
         

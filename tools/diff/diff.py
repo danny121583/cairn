@@ -53,6 +53,13 @@ def calculate_impact(root, concept_path):
 
 
 def run_diff(old_file, new_file, root="."):
+    o_path = Path(old_file)
+    n_path = Path(new_file)
+    if not o_path.exists():
+        raise FileNotFoundError(f"Original file does not exist: {old_file}")
+    if not n_path.exists():
+        raise FileNotFoundError(f"New file does not exist: {new_file}")
+        
     old_meta, _, old_ok = split_doc(old_file)
     new_meta, _, new_ok = split_doc(new_file)
     

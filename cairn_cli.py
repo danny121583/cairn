@@ -95,7 +95,11 @@ def cmd_query(args):
     query_args = list(args.filters)
     if args.root:
         query_args.extend(["--root", args.root])
-    return query_main(query_args)
+    try:
+        return query_main(query_args)
+    except Exception as e:
+        print(f"Error querying index: {e}", file=sys.stderr)
+        return 1
 
 
 def cmd_export(args):
@@ -104,14 +108,22 @@ def cmd_export(args):
         export_args.extend(["--root", args.root])
     if args.output:
         export_args.extend(["--output", args.output])
-    return export_main(export_args)
+    try:
+        return export_main(export_args)
+    except Exception as e:
+        print(f"Error exporting graph: {e}", file=sys.stderr)
+        return 1
 
 
 def cmd_diff(args):
     diff_args = [args.old_file, args.new_file]
     if args.root:
         diff_args.extend(["--root", args.root])
-    return diff_main(diff_args)
+    try:
+        return diff_main(diff_args)
+    except Exception as e:
+        print(f"Error diffing concepts: {e}", file=sys.stderr)
+        return 1
 
 
 def build_parser():
@@ -159,9 +171,13 @@ def build_parser():
     critic_cmd.add_argument("root", nargs="?", default=".")
     critic_cmd.set_defaults(func=cmd_critic)
 
-    query_cmd = sub.add_parser("query", help="Query the Cairn index using metadata filters.")
-    query_cmd.add_argument("filters", nargs="*")
-    query_cmd.add_argument("--root", default=".")
+    query_cmd = sub.add_parser(
+        "query",
+        help="Query the Cairn index using metadata filters.",
+        description="Filter concepts in the index using keys like 'type=schemas/rfc.md', 'tags=core', 'relation:strength=hard', or 'text_query'."
+    )
+    query_cmd.add_argument("filters", nargs="*", help="Key-value filters (e.g. type=services) or free-text keywords.")
+    query_cmd.add_argument("--root", default=".", help="Root directory of the Cairn bundle.")
     query_cmd.set_defaults(func=cmd_query)
 
     export_cmd = sub.add_parser("export", help="Export the Cairn concept graph.")

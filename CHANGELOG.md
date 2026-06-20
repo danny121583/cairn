@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0
+
+- Added `rel_context` (kind + strength) to structure relation dependencies.
+- Added structured `evidence` arrays to backing inferred relations with proof details.
+- Added `automation_policy` configuration for defining autonomous agent boundaries.
+- Introduced `cairn query` to filter concept indexes using tags, relations, and context metadata.
+- Introduced `cairn export` supporting Graphviz (`dot`), Neo4j (`cypher`), and GraphQL schemas.
+- Introduced `cairn diff` to semantically compare concepts and calculate downstream blast-radius.
+- Added `schemas/lifecycle.md` and `schemas/validation-rubric.md` schema concepts.
+
 ## 0.2.0
 
 - Aligned visible specification and package versions under a standard-candidate version policy.
