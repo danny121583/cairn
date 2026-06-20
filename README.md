@@ -4,7 +4,7 @@
 
 > Cairn v0.2.0 — Project-agnostic specification, examples, tools, and agent skill.
 
-[![CI](https://github.com/apd1034/cairn/actions/workflows/ci.yml/badge.svg)](https://github.com/apd1034/cairn/actions/workflows/ci.yml)
+[![CI](https://github.com/danny121583/cairn/actions/workflows/ci.yml/badge.svg)](https://github.com/danny121583/cairn/actions/workflows/ci.yml)
 
 Cairn is an open standard for representing project knowledge as a directory of plain Markdown files. Each concept is one file. The file path is the concept's identity. There is no SDK, no runtime, no database, and no required service — only Markdown, YAML frontmatter, and relationships that can be inspected, queried, and verified.
 
