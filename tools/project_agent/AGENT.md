@@ -11,7 +11,7 @@ relations:
     confidence: declared
     note: Defines the agent behavior required by the project analysis workflow.
   - type: references
-    target: ../../tools/project-agent/README.md
+    target: README.md
     confidence: declared
     note: Companion documentation for the runnable implementation.
 ---

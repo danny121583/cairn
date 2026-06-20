@@ -25,5 +25,8 @@
     "markdown",
     "yaml",
     "cairn"
-  ]
+  ],
+  "dependencies": {
+    "js-yaml": "^4.2.0"
+  }
 }

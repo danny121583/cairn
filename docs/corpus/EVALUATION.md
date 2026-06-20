@@ -5,6 +5,11 @@ description: Defines how Cairn migration-agent precision and recall should be me
 status: active
 tags: [corpus, evaluation, migration]
 timestamp: 2026-06-20T16:44:00Z
+relations:
+  - type: references
+    target: ../../migration-guides/project-analysis.md
+    confidence: declared
+    note: The project analysis migration workflow evaluated by this methodology.
 ---
 
 # Migration Corpus Evaluation

@@ -7,7 +7,7 @@ tags: [rfc, merge, testing]
 timestamp: 2026-06-20T16:41:00Z
 relations:
   - type: implements
-    target: ../tools/merge/merge.py
+    target: ../tools/merge/README.md
     confidence: declared
     note: The Python merge engine is the current executable reference for Cairn merge behavior.
 ---

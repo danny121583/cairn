@@ -9,8 +9,27 @@ from tools.corpus.evaluate import main as corpus_main
 from tools.index.index import main as write_index
 from tools.merge.merge import main as merge_main
 from tools.project_agent.cairnize import run as run_migration
-from tools.reference_parser.parser import parse as parse_concept
 from tools.validate.validate import validate
+import importlib.util
+
+def _load_parser():
+    path = Path(__file__).resolve().parent / "tools" / "reference-parser" / "parser.py"
+    spec = importlib.util.spec_from_file_location("reference_parser_dynamic", str(path))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.parse
+
+parse_concept = _load_parser()
+
+
+def _load_critic():
+    path = Path(__file__).resolve().parent / "tools" / "critic-agent" / "critic.py"
+    spec = importlib.util.spec_from_file_location("critic_dynamic", str(path))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.main
+
+critic_main = _load_critic()
 
 
 def cmd_validate(args):
@@ -65,6 +84,10 @@ def cmd_corpus(args):
     return 0
 
 
+def cmd_critic(args):
+    return critic_main([args.root])
+
+
 def build_parser():
     parser = argparse.ArgumentParser(prog="cairn", description="Validate, index, audit, and migrate Cairn bundles.")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -105,6 +128,10 @@ def build_parser():
     corpus_cmd.add_argument("--output", default="corpus-runs")
     corpus_cmd.add_argument("--report")
     corpus_cmd.set_defaults(func=cmd_corpus)
+
+    critic_cmd = sub.add_parser("critic", help="Run the Cairn Critic Agent.")
+    critic_cmd.add_argument("root", nargs="?", default=".")
+    critic_cmd.set_defaults(func=cmd_critic)
 
     return parser
 

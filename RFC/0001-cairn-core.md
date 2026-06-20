@@ -5,6 +5,11 @@ description: Establishes the initial Cairn core format and repository layout as 
 status: active
 tags: [rfc, core]
 timestamp: 2026-06-20T00:00:00-05:00
+relations:
+  - type: references
+    target: ../SPECIFICATION.md
+    confidence: declared
+    note: Core specifications of the Cairn format.
 ---
 
 # RFC 0001: Cairn Core v0.1.0

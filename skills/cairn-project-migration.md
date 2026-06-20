@@ -11,7 +11,7 @@ relations:
     confidence: declared
     note: Packages Cairn migration behavior as an Agent Skill companion.
   - type: references
-    target: ../tools/project-agent/AGENT.md
+    target: ../tools/project_agent/AGENT.md
     confidence: declared
     note: Mirrors the Cairn migration agent operating contract.
 ---

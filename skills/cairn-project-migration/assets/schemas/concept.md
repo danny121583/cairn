@@ -5,6 +5,11 @@ description: The base schema contract for a Cairn concept file.
 status: active
 tags: [schema, core]
 timestamp: 2026-06-20T00:00:00-05:00
+relations:
+  - type: references
+    target: schema.md
+    confidence: declared
+    note: The base meta-schema from which concept schemas derive.
 ---
 
 # Concept Schema
