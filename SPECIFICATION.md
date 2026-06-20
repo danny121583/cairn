@@ -1,6 +1,6 @@
 ---
 type: schemas/specification.md
-title: Cairn v0.2.0 Specification
+title: Cairn v0.3.0 Specification
 description: Defines the core Cairn format for portable, file-based knowledge concepts.
 status: active
 tags: [cairn, specification, core]
@@ -12,7 +12,7 @@ relations:
     note: Establishes the initial Cairn core specification.
 ---
 
-# Cairn v0.2.0 Specification
+# Cairn v0.3.0 Specification
 
 ## 1. The Cairn Concept
 
@@ -34,6 +34,23 @@ relations:
     target: <relative path, or cairn://<bundle-id>/<path> for cross-bundle>
     confidence: declared | inferred
     note: <optional plain-language description>
+    rel_context:
+      kind: api_call | import | foreign_key | config | file | manual
+      strength: hard | soft | optional
+    evidence:
+      - type: code_extraction | naming_heuristic | user_assertion | ...
+        source_uri: <file path or URI>
+        line: <line number>
+        extract: <source text snippet>
+        tool: <scanner name and version>
+        extracted_at: <timestamp>
+automation_policy:
+  agent_modification_allowed: <boolean>
+  agent_can_infer_relations: <boolean>
+  agent_can_add_evidence: <boolean>
+  change_requires_approval: <boolean>
+  automation_safe_fields: [<list of fields>]
+  approval_gate_team: <team-name>
 ---
 
 # Body
@@ -80,9 +97,19 @@ relations:
     target: services/payment.md
     confidence: declared
     note: Human-reviewed dependency.
+    rel_context:
+      kind: api_call
+      strength: hard
+    evidence:
+      - type: code_extraction
+        source_uri: "file://src/payment.ts"
+        line: 12
+        extract: "import { PaymentStatus } from 'types/shared'"
+        tool: cairn-code-scanner/v2.1
+        extracted_at: 2026-06-20T14:32:00Z
 ```
 
-`declared` means a human asserted the relation. `inferred` means a tool derived it from evidence such as an import statement, foreign key, manifest, route, or config dependency. Never mark an inferred relation as `declared`. Inferred relations should include a `note` citing concrete evidence.
+`declared` means a human asserted the relation. `inferred` means a tool derived it from evidence such as an import statement, foreign key, manifest, route, or config dependency. Never mark an inferred relation as `declared`. Inferred relations should include a `note` citing concrete evidence, and optionally structure their findings under `rel_context` and `evidence`.
 
 Common relation types include `depends_on`, `owns`, `joins`, `references`, `supersedes`, and `implements`. A bundle may define additional types in schema concepts or companion specifications.
 
@@ -92,11 +119,17 @@ A `type` value is itself a Cairn concept under `schemas/`. A schema concept docu
 
 Schema contracts are descriptive and inspectable. Tools may read them to validate concepts, but humans can also review the contract directly in markdown.
 
-## 7. Lifecycle
+## 7. Lifecycle & Deprecation
 
 `status` is the only lifecycle field in core. Valid values are `draft`, `active`, and `deprecated`. History lives in `git log <path>`. Replacement is modeled with a `supersedes` relation from the replacement concept to the concept it replaces.
 
-## 8. Merge Rules
+For detailed deprecation roadmaps, concepts should implement the optional `deprecation` block defined in [schemas/lifecycle.md](schemas/lifecycle.md).
+
+## 8. Automation Policy
+
+The optional `automation_policy` field defines the permissions and boundaries of autonomous software agents or pipelines acting on the concept. This allows explicit control over what automated processes may read, modify, or suggest for any concept file.
+
+## 9. Merge Rules
 
 When concurrent edits modify the same concept file, merge frontmatter mechanically:
 

@@ -162,5 +162,41 @@ timestamp: 2026-06-20T00:00:00Z
             self.assertTrue(report.exists())
 
 
+    def test_query_cli(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp)
+            subprocess.run(["cp", "-R", str(FIXTURES / "valid-bundle") + "/.", str(target)], check=True)
+            write_index(target)
+            
+            cmd = [sys.executable, str(ROOT / "cairn_cli.py"), "query", "type=schemas/concept.md", "--root", str(target)]
+            completed = subprocess.run(cmd, text=True, capture_output=True, check=True)
+            results = json.loads(completed.stdout)
+            self.assertGreaterEqual(len(results), 1)
+            paths = [r["path"] for r in results]
+            self.assertIn("database.md", paths)
+
+    def test_export_cli(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp)
+            subprocess.run(["cp", "-R", str(FIXTURES / "valid-bundle") + "/.", str(target)], check=True)
+            write_index(target)
+            
+            for fmt in ["dot", "cypher", "graphql"]:
+                cmd = [sys.executable, str(ROOT / "cairn_cli.py"), "export", "--format", fmt, "--root", str(target)]
+                completed = subprocess.run(cmd, text=True, capture_output=True, check=True)
+                self.assertTrue(len(completed.stdout) > 0)
+
+    def test_diff_cli(self):
+        cmd = [
+            sys.executable,
+            str(ROOT / "cairn_cli.py"),
+            "diff",
+            str(FIXTURES / "valid-bundle" / "database.md"),
+            str(FIXTURES / "valid-bundle" / "service.md")
+        ]
+        completed = subprocess.run(cmd, text=True, capture_output=True, check=True)
+        self.assertIn("Semantic Diff", completed.stdout)
+
+
 if __name__ == "__main__":
     unittest.main()

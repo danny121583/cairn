@@ -12,6 +12,23 @@ relations:
     target: examples/database.md
     confidence: declared
     note: Maintainer-declared dependency for payment persistence.
+    rel_context:
+      kind: database
+      strength: hard
+    evidence:
+      - type: code_extraction
+        source_uri: "file://src/payment.ts"
+        line: 12
+        extract: "import { PaymentStatus } from 'types/shared'"
+        tool: cairn-code-scanner/v2.1
+        extracted_at: 2026-06-20T14:32:00Z
+automation_policy:
+  agent_modification_allowed: true
+  agent_can_infer_relations: true
+  agent_can_add_evidence: true
+  change_requires_approval: true
+  automation_safe_fields: [tags, timestamp]
+  approval_gate_team: billing-devs
 ---
 
 # Payment Service

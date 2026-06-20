@@ -28,6 +28,8 @@ relations:
 - `hash`: SHA-256 of the canonical body
 - `aliases`: list of previous bundle-local paths
 - `relations`: list of typed relation objects
+- `deprecation`: lifecycle deprecation details mapping (defined in lifecycle.md)
+- `automation_policy`: agent modification policy mapping
 
 ## Forbidden Fields
 

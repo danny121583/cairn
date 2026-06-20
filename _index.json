@@ -1,5 +1,12 @@
 {
   "backlinks": {
+    "../../RFC/0004-merge-engine.md": [
+      {
+        "confidence": "declared",
+        "source": "tools/merge/README.md",
+        "type": "references"
+      }
+    ],
     "../../RFC/0005-uri-security-model.md": [
       {
         "confidence": "declared",
@@ -11,6 +18,11 @@
       {
         "confidence": "declared",
         "source": "tools/validate/README.md",
+        "type": "references"
+      },
+      {
+        "confidence": "declared",
+        "source": "tools/critic-agent/AGENT.md",
         "type": "references"
       },
       {
@@ -27,24 +39,29 @@
     "../../migration-guides/project-analysis.md": [
       {
         "confidence": "declared",
-        "source": "tools/project-agent/AGENT.md",
+        "source": "docs/corpus/EVALUATION.md",
+        "type": "references"
+      },
+      {
+        "confidence": "declared",
+        "source": "tools/project_agent/AGENT.md",
         "type": "implements"
       },
       {
         "confidence": "declared",
-        "source": "tools/project-agent/README.md",
+        "source": "tools/project_agent/README.md",
         "type": "references"
       }
     ],
     "../../schemas/audit-rubric.md": [
       {
         "confidence": "declared",
-        "source": "tools/project-agent/README.md",
+        "source": "tools/auditor/README.md",
         "type": "references"
       },
       {
         "confidence": "declared",
-        "source": "tools/auditor/README.md",
+        "source": "tools/project_agent/README.md",
         "type": "references"
       }
     ],
@@ -52,13 +69,6 @@
       {
         "confidence": "declared",
         "source": "tools/report-agent/AGENT.md",
-        "type": "references"
-      }
-    ],
-    "../../tools/project-agent/README.md": [
-      {
-        "confidence": "declared",
-        "source": "tools/project-agent/AGENT.md",
         "type": "references"
       }
     ],
@@ -83,6 +93,11 @@
       {
         "confidence": "declared",
         "source": "migration-guides/project-analysis.md",
+        "type": "references"
+      },
+      {
+        "confidence": "declared",
+        "source": "RFC/0001-cairn-core.md",
         "type": "references"
       },
       {
@@ -115,14 +130,14 @@
         "type": "references"
       }
     ],
-    "../tools/merge/merge.py": [
+    "../tools/merge/README.md": [
       {
         "confidence": "declared",
         "source": "RFC/0004-merge-engine.md",
         "type": "implements"
       }
     ],
-    "../tools/project-agent/AGENT.md": [
+    "../tools/project_agent/AGENT.md": [
       {
         "confidence": "declared",
         "source": "skills/cairn-project-migration.md",
@@ -140,6 +155,13 @@
       {
         "confidence": "declared",
         "source": "tools/report-agent/README.md",
+        "type": "references"
+      }
+    ],
+    "README.md": [
+      {
+        "confidence": "declared",
+        "source": "tools/project_agent/AGENT.md",
         "type": "references"
       }
     ],
@@ -162,6 +184,40 @@
         "type": "references"
       }
     ],
+    "audit-rubric.md": [
+      {
+        "confidence": "declared",
+        "source": "schemas/validation-rubric.md",
+        "type": "references"
+      }
+    ],
+    "concept.md": [
+      {
+        "confidence": "declared",
+        "source": "schemas/specification.md",
+        "type": "references"
+      },
+      {
+        "confidence": "declared",
+        "source": "schemas/lifecycle.md",
+        "type": "references"
+      },
+      {
+        "confidence": "declared",
+        "source": "schemas/rfc.md",
+        "type": "references"
+      },
+      {
+        "confidence": "declared",
+        "source": "schemas/migration-report.md",
+        "type": "references"
+      },
+      {
+        "confidence": "declared",
+        "source": "skills/cairn-project-migration/assets/schemas/migration-report.md",
+        "type": "references"
+      }
+    ],
     "examples/database.md": [
       {
         "confidence": "declared",
@@ -176,6 +232,18 @@
         "type": "references"
       }
     ],
+    "schema.md": [
+      {
+        "confidence": "declared",
+        "source": "schemas/concept.md",
+        "type": "references"
+      },
+      {
+        "confidence": "declared",
+        "source": "skills/cairn-project-migration/assets/schemas/concept.md",
+        "type": "references"
+      }
+    ],
     "schemas/audit-rubric.md": [
       {
         "confidence": "declared",
@@ -184,7 +252,22 @@
       },
       {
         "confidence": "declared",
+        "source": "reports/CAIRN_AUDIT_20260620T175258Z.md",
+        "type": "references"
+      },
+      {
+        "confidence": "declared",
         "source": "reports/CAIRN_AUDIT_20260620T143738Z.md",
+        "type": "references"
+      },
+      {
+        "confidence": "declared",
+        "source": "reports/CAIRN_AUDIT_20260620T175413Z.md",
+        "type": "references"
+      },
+      {
+        "confidence": "declared",
+        "source": "reports/CAIRN_AUDIT_20260620T175327Z.md",
         "type": "references"
       }
     ],
@@ -204,11 +287,36 @@
         "source": "skills/cairn-project-migration/assets/schemas/schema.md",
         "type": "implements"
       }
+    ],
+    "tools/critic-agent/AGENT.md": [
+      {
+        "confidence": "declared",
+        "source": "reports/CAIRN_CRITIQUE_20260620T173006Z.md",
+        "type": "references"
+      },
+      {
+        "confidence": "declared",
+        "source": "reports/CAIRN_CRITIQUE_20260620T172939Z.md",
+        "type": "references"
+      },
+      {
+        "confidence": "declared",
+        "source": "reports/CAIRN_CRITIQUE_20260620T175415Z.md",
+        "type": "references"
+      }
     ]
   },
   "concepts": {
     "RFC/0001-cairn-core.md": {
       "description": "Establishes the initial Cairn core format and repository layout as a standard-candidate release.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "note": "Core specifications of the Cairn format.",
+          "target": "../SPECIFICATION.md",
+          "type": "references"
+        }
+      ],
       "status": "active",
       "tags": [
         "rfc",
@@ -264,7 +372,7 @@
         {
           "confidence": "declared",
           "note": "The Python merge engine is the current executable reference for Cairn merge behavior.",
-          "target": "../tools/merge/merge.py",
+          "target": "../tools/merge/README.md",
           "type": "implements"
         }
       ],
@@ -315,7 +423,7 @@
         "core"
       ],
       "timestamp": "2026-06-20 00:00:00-05:00",
-      "title": "Cairn v0.2.0 Specification",
+      "title": "Cairn v0.3.0 Specification",
       "type": "schemas/specification.md"
     },
     "assets/cairn-logical-evolution-of-okf.md": {
@@ -362,6 +470,14 @@
     },
     "docs/corpus/EVALUATION.md": {
       "description": "Defines how Cairn migration-agent precision and recall should be measured on real projects.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "note": "The project analysis migration workflow evaluated by this methodology.",
+          "target": "../../migration-guides/project-analysis.md",
+          "type": "references"
+        }
+      ],
       "status": "active",
       "tags": [
         "corpus",
@@ -434,11 +550,36 @@
       "aliases": [
         "examples/billing-service.md"
       ],
+      "automation_policy": {
+        "agent_can_add_evidence": true,
+        "agent_can_infer_relations": true,
+        "agent_modification_allowed": true,
+        "approval_gate_team": "billing-devs",
+        "automation_safe_fields": [
+          "tags",
+          "timestamp"
+        ],
+        "change_requires_approval": true
+      },
       "description": "Example service concept showing a declared dependency relation.",
       "relations": [
         {
           "confidence": "declared",
+          "evidence": [
+            {
+              "extract": "import { PaymentStatus } from 'types/shared'",
+              "extracted_at": "2026-06-20 14:32:00+00:00",
+              "line": 12,
+              "source_uri": "file://src/payment.ts",
+              "tool": "cairn-code-scanner/v2.1",
+              "type": "code_extraction"
+            }
+          ],
           "note": "Maintainer-declared dependency for payment persistence.",
+          "rel_context": {
+            "kind": "database",
+            "strength": "hard"
+          },
           "target": "examples/database.md",
           "type": "depends_on"
         }
@@ -486,6 +627,117 @@
       ],
       "timestamp": "2026-06-20 14:37:38.981864+00:00",
       "title": "Cairn Audit 20260620T143738Z",
+      "type": "schemas/audit-report.md"
+    },
+    "reports/CAIRN_AUDIT_20260620T175258Z.md": {
+      "description": "Timestamped per-concept Cairn compliance audit.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "target": "schemas/audit-rubric.md",
+          "type": "references"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "audit",
+        "report"
+      ],
+      "timestamp": "2026-06-20 17:52:58.732544+00:00",
+      "title": "Cairn Audit 20260620T175258Z",
+      "type": "schemas/audit-report.md"
+    },
+    "reports/CAIRN_AUDIT_20260620T175327Z.md": {
+      "description": "Timestamped per-concept Cairn compliance audit.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "target": "schemas/audit-rubric.md",
+          "type": "references"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "audit",
+        "report"
+      ],
+      "timestamp": "2026-06-20 17:53:27.889299+00:00",
+      "title": "Cairn Audit 20260620T175327Z",
+      "type": "schemas/audit-report.md"
+    },
+    "reports/CAIRN_AUDIT_20260620T175413Z.md": {
+      "description": "Timestamped per-concept Cairn compliance audit.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "target": "schemas/audit-rubric.md",
+          "type": "references"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "audit",
+        "report"
+      ],
+      "timestamp": "2026-06-20 17:54:13.088536+00:00",
+      "title": "Cairn Audit 20260620T175413Z",
+      "type": "schemas/audit-report.md"
+    },
+    "reports/CAIRN_CRITIQUE_20260620T172939Z.md": {
+      "description": "Automated critique of compliance levels, structure, and spec alignment for Cairn.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "target": "tools/critic-agent/AGENT.md",
+          "type": "references"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "critique",
+        "audit",
+        "report"
+      ],
+      "timestamp": "2026-06-20 17:29:39.420510+00:00",
+      "title": "Cairn Critique 20260620T172939Z",
+      "type": "schemas/audit-report.md"
+    },
+    "reports/CAIRN_CRITIQUE_20260620T173006Z.md": {
+      "description": "Automated critique of compliance levels, structure, and spec alignment for Cairn.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "target": "tools/critic-agent/AGENT.md",
+          "type": "references"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "critique",
+        "audit",
+        "report"
+      ],
+      "timestamp": "2026-06-20 17:30:06.079164+00:00",
+      "title": "Cairn Critique 20260620T173006Z",
+      "type": "schemas/audit-report.md"
+    },
+    "reports/CAIRN_CRITIQUE_20260620T175415Z.md": {
+      "description": "Automated critique of compliance levels, structure, and spec alignment for Cairn.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "target": "tools/critic-agent/AGENT.md",
+          "type": "references"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "critique",
+        "audit",
+        "report"
+      ],
+      "timestamp": "2026-06-20 17:54:15.534758+00:00",
+      "title": "Cairn Critique 20260620T175415Z",
       "type": "schemas/audit-report.md"
     },
     "schemas/agent-skill.md": {
@@ -549,6 +801,14 @@
     },
     "schemas/concept.md": {
       "description": "The base schema contract for a Cairn concept file.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "note": "The base meta-schema from which concept schemas derive.",
+          "target": "schema.md",
+          "type": "references"
+        }
+      ],
       "status": "active",
       "tags": [
         "schema",
@@ -558,8 +818,36 @@
       "title": "Concept",
       "type": "schemas/schema.md"
     },
+    "schemas/lifecycle.md": {
+      "description": "Schema for defining advanced concept lifecycle, deprecation schedules, and replacement pathways.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "note": "Extensions to the core concept metadata schema.",
+          "target": "concept.md",
+          "type": "references"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "schema",
+        "lifecycle",
+        "core"
+      ],
+      "timestamp": "2026-06-20 00:00:00-05:00",
+      "title": "Lifecycle",
+      "type": "schemas/schema.md"
+    },
     "schemas/migration-report.md": {
       "description": "A schema for reports produced when analyzing an existing project for Cairn adoption.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "note": "The base concept schema that migration report concepts must extend.",
+          "target": "concept.md",
+          "type": "references"
+        }
+      ],
       "status": "active",
       "tags": [
         "schema",
@@ -572,6 +860,14 @@
     },
     "schemas/rfc.md": {
       "description": "A schema for proposed or accepted changes to Cairn.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "note": "The base concept schema that RFC concepts must extend.",
+          "target": "concept.md",
+          "type": "references"
+        }
+      ],
       "status": "active",
       "tags": [
         "schema",
@@ -601,6 +897,14 @@
     },
     "schemas/specification.md": {
       "description": "A schema for published Cairn specification documents.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "note": "The base concept schema that specification concepts must extend.",
+          "target": "concept.md",
+          "type": "references"
+        }
+      ],
       "status": "active",
       "tags": [
         "schema",
@@ -608,6 +912,26 @@
       ],
       "timestamp": "2026-06-20 00:00:00-05:00",
       "title": "Specification",
+      "type": "schemas/schema.md"
+    },
+    "schemas/validation-rubric.md": {
+      "description": "Guidelines and methodology for enforcing cross-concept rules and integrity across Cairn bundles.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "note": "Extensions to the standard concept audit scoring rubric.",
+          "target": "audit-rubric.md",
+          "type": "references"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "schema",
+        "audit",
+        "validation"
+      ],
+      "timestamp": "2026-06-20 00:00:00-05:00",
+      "title": "Validation Rubric",
       "type": "schemas/schema.md"
     },
     "skills/README.md": {
@@ -642,7 +966,7 @@
         {
           "confidence": "declared",
           "note": "Mirrors the Cairn migration agent operating contract.",
-          "target": "../tools/project-agent/AGENT.md",
+          "target": "../tools/project_agent/AGENT.md",
           "type": "references"
         }
       ],
@@ -658,6 +982,14 @@
     },
     "skills/cairn-project-migration/assets/schemas/concept.md": {
       "description": "The base schema contract for a Cairn concept file.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "note": "The base meta-schema from which concept schemas derive.",
+          "target": "schema.md",
+          "type": "references"
+        }
+      ],
       "status": "active",
       "tags": [
         "schema",
@@ -669,6 +1001,14 @@
     },
     "skills/cairn-project-migration/assets/schemas/migration-report.md": {
       "description": "A schema for reports produced when analyzing an existing project for Cairn adoption.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "note": "The base concept schema that migration report concepts must extend.",
+          "target": "concept.md",
+          "type": "references"
+        }
+      ],
       "status": "active",
       "tags": [
         "schema",
@@ -741,6 +1081,27 @@
       "title": "Auditor",
       "type": "schemas/concept.md"
     },
+    "tools/critic-agent/AGENT.md": {
+      "description": "Operating contract for scanning, critiquing, and recommending improvements for Cairn bundle compliance and architecture.",
+      "initial_version": "0.2.0",
+      "relations": [
+        {
+          "confidence": "declared",
+          "note": "Validates the codebase structure and concepts against the core specification guidelines.",
+          "target": "../../SPECIFICATION.md",
+          "type": "references"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "agent",
+        "critic",
+        "auditing"
+      ],
+      "timestamp": "2026-06-20 12:00:00+00:00",
+      "title": "Cairn Critic Agent",
+      "type": "schemas/concept.md"
+    },
     "tools/index/README.md": {
       "description": "Generates _index.json from Cairn frontmatter and computed backlinks.",
       "relations": [
@@ -759,7 +1120,25 @@
       "title": "Indexer",
       "type": "schemas/concept.md"
     },
-    "tools/project-agent/AGENT.md": {
+    "tools/merge/README.md": {
+      "description": "Deterministically merges three Cairn concept versions based on field types and timestamps.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "target": "../../RFC/0004-merge-engine.md",
+          "type": "references"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "tools",
+        "merge"
+      ],
+      "timestamp": "2026-06-20 00:00:00-05:00",
+      "title": "Merge Engine",
+      "type": "schemas/concept.md"
+    },
+    "tools/project_agent/AGENT.md": {
       "description": "Operating contract for an agent that scans projects and stages Cairn migration artifacts.",
       "relations": [
         {
@@ -771,7 +1150,7 @@
         {
           "confidence": "declared",
           "note": "Companion documentation for the runnable implementation.",
-          "target": "../../tools/project-agent/README.md",
+          "target": "README.md",
           "type": "references"
         }
       ],
@@ -785,7 +1164,7 @@
       "title": "Cairn Migration Agent Contract",
       "type": "schemas/concept.md"
     },
-    "tools/project-agent/README.md": {
+    "tools/project_agent/README.md": {
       "description": "A read-only migration agent that scans a project and stages Cairn concepts plus a migration report.",
       "relations": [
         {

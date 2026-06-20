@@ -10,6 +10,9 @@ from tools.index.index import main as write_index
 from tools.merge.merge import main as merge_main
 from tools.project_agent.cairnize import run as run_migration
 from tools.validate.validate import validate
+from tools.query.query import main as query_main
+from tools.export.export import main as export_main
+from tools.diff.diff import main as diff_main
 import importlib.util
 
 def _load_parser():
@@ -88,6 +91,29 @@ def cmd_critic(args):
     return critic_main([args.root])
 
 
+def cmd_query(args):
+    query_args = list(args.filters)
+    if args.root:
+        query_args.extend(["--root", args.root])
+    return query_main(query_args)
+
+
+def cmd_export(args):
+    export_args = ["--format", args.format]
+    if args.root:
+        export_args.extend(["--root", args.root])
+    if args.output:
+        export_args.extend(["--output", args.output])
+    return export_main(export_args)
+
+
+def cmd_diff(args):
+    diff_args = [args.old_file, args.new_file]
+    if args.root:
+        diff_args.extend(["--root", args.root])
+    return diff_main(diff_args)
+
+
 def build_parser():
     parser = argparse.ArgumentParser(prog="cairn", description="Validate, index, audit, and migrate Cairn bundles.")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -132,6 +158,23 @@ def build_parser():
     critic_cmd = sub.add_parser("critic", help="Run the Cairn Critic Agent.")
     critic_cmd.add_argument("root", nargs="?", default=".")
     critic_cmd.set_defaults(func=cmd_critic)
+
+    query_cmd = sub.add_parser("query", help="Query the Cairn index using metadata filters.")
+    query_cmd.add_argument("filters", nargs="*")
+    query_cmd.add_argument("--root", default=".")
+    query_cmd.set_defaults(func=cmd_query)
+
+    export_cmd = sub.add_parser("export", help="Export the Cairn concept graph.")
+    export_cmd.add_argument("--format", choices=["dot", "cypher", "graphql"], required=True)
+    export_cmd.add_argument("--root", default=".")
+    export_cmd.add_argument("--output")
+    export_cmd.set_defaults(func=cmd_export)
+
+    diff_cmd = sub.add_parser("diff", help="Semantically diff two Cairn concepts.")
+    diff_cmd.add_argument("old_file")
+    diff_cmd.add_argument("new_file")
+    diff_cmd.add_argument("--root", default=".")
+    diff_cmd.set_defaults(func=cmd_diff)
 
     return parser
 
