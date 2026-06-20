@@ -2,7 +2,7 @@
 
 **A portable knowledge format — durable identity, verifiable relationships, just files.**
 
-> Cairn v0.2.0 — Project-agnostic specification, examples, tools, and agent skill.
+> Cairn v0.3.0 — Project-agnostic specification, examples, tools, and agent skill.
 
 [![CI](https://github.com/danny121583/cairn/actions/workflows/ci.yml/badge.svg)](https://github.com/danny121583/cairn/actions/workflows/ci.yml)
 

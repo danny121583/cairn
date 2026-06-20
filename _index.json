@@ -267,6 +267,11 @@
       },
       {
         "confidence": "declared",
+        "source": "reports/CAIRN_AUDIT_20260620T180849Z.md",
+        "type": "references"
+      },
+      {
+        "confidence": "declared",
         "source": "reports/CAIRN_AUDIT_20260620T175327Z.md",
         "type": "references"
       }
@@ -302,6 +307,11 @@
       {
         "confidence": "declared",
         "source": "reports/CAIRN_CRITIQUE_20260620T175415Z.md",
+        "type": "references"
+      },
+      {
+        "confidence": "declared",
+        "source": "reports/CAIRN_CRITIQUE_20260620T180849Z.md",
         "type": "references"
       }
     ]
@@ -683,6 +693,24 @@
       "title": "Cairn Audit 20260620T175413Z",
       "type": "schemas/audit-report.md"
     },
+    "reports/CAIRN_AUDIT_20260620T180849Z.md": {
+      "description": "Timestamped per-concept Cairn compliance audit.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "target": "schemas/audit-rubric.md",
+          "type": "references"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "audit",
+        "report"
+      ],
+      "timestamp": "2026-06-20 18:08:49.376316+00:00",
+      "title": "Cairn Audit 20260620T180849Z",
+      "type": "schemas/audit-report.md"
+    },
     "reports/CAIRN_CRITIQUE_20260620T172939Z.md": {
       "description": "Automated critique of compliance levels, structure, and spec alignment for Cairn.",
       "relations": [
@@ -738,6 +766,25 @@
       ],
       "timestamp": "2026-06-20 17:54:15.534758+00:00",
       "title": "Cairn Critique 20260620T175415Z",
+      "type": "schemas/audit-report.md"
+    },
+    "reports/CAIRN_CRITIQUE_20260620T180849Z.md": {
+      "description": "Automated critique of compliance levels, structure, and spec alignment for Cairn.",
+      "relations": [
+        {
+          "confidence": "declared",
+          "target": "tools/critic-agent/AGENT.md",
+          "type": "references"
+        }
+      ],
+      "status": "active",
+      "tags": [
+        "critique",
+        "audit",
+        "report"
+      ],
+      "timestamp": "2026-06-20 18:08:49.502667+00:00",
+      "title": "Cairn Critique 20260620T180849Z",
       "type": "schemas/audit-report.md"
     },
     "schemas/agent-skill.md": {

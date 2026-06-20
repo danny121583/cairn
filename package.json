@@ -1,6 +1,6 @@
 {
   "name": "@danny121583/cairn",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "JavaScript reference implementation for the Cairn portable knowledge format.",
   "license": "MIT",
   "type": "commonjs",
